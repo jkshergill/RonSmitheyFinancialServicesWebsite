@@ -348,9 +348,9 @@
     }
 }
 
-/* services Section CSS */
+/* Calculator Section CSS */
 
-.services {
+.calculator {
     background: #141414;
     display: flex;
     flex-direction: column;
@@ -358,7 +358,7 @@
     height: 100vh;
 }
 
-.services h1 {
+.calculator h1 {
     background-color: #0CABA8;
     background-image: linear-gradient(to right, #25d4d1 0%, #309797 0%, #207878 21%, #1a7575 52%, #1c6767 78%, #0f5757 100%);
     background-size: 100%;
@@ -370,13 +370,13 @@
     -moz-text-fill-color: transparent;
 }
 
-.services__container {
+.calculator__container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.services__card {
+.calculator__card {
     margin: 1rem;
     height: 525px;
     width: 400px;
@@ -387,27 +387,27 @@
     color: #fff;
 }
 
-.services__card:nth-child(2) {
+.calculator__card:nth-child(2) {
     background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('/images/fast-loading.svg');
 }
 
-.services__card:nth-child(3) {
+.calculator__card:nth-child(3) {
     background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('/images/savings.svg');
 }
 
-.services h2 {
+.calculator h2 {
     position: absolute;
     top: 380px;
     left: 30px;
 }
 
-.services__card p {
+.calculator__card p {
     position: absolute;
     top: 420px;
     left: 30px;
 }
 
-.services__card button {
+.calculator__card button {
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -421,33 +421,33 @@
     cursor: pointer;
 }
 
-.services__card:hover {
+.calculator__card:hover {
     transform: scale(1.075);
     transition: 0.2s ease-in;
     cursor: pointer;
 }
 
 @media screen and (max-width: 960px) {
-    .services {
+    .calculator {
         height: 1600px;
     }
 
-    .services h1 {
+    .calculator h1 {
         font-size: 2rem;
         margin-top: 12rem;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .services {
+    .calculator {
         height: 1400px;
     }
 
-    .services h1 {
+    .calculator h1 {
         font-size: 1.2rem;
     }
 
-    .services {
+    .calculator {
         width: 300px;
     }
 }
