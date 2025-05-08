@@ -724,7 +724,7 @@
 
     .form__group {
         flex-direction: column;
-        gap: 30px;
+        gap: 50px;
     }
 }
 
@@ -750,7 +750,7 @@
 
     .form__group {
         flex-direction: column;
-        gap: 30px;
+        gap: 50px;
     }
     
 }
