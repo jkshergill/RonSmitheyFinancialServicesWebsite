@@ -133,7 +133,7 @@
         margin: 0 auto;
         height: 200vh;
         padding: 10px;
-        border-radius: 10px;
+        border-radius: 0px;
         background: #141414;
     }
 
@@ -161,6 +161,7 @@
         margin: 0 auto;
         height: 90vh;
         background: #141414;
+        border-radius: 0px;
     }
 
     .form {
@@ -176,4 +177,12 @@
         gap: 30px;
     }
     
+}
+
+form div.incorrect label {
+    background-color: #dc2f3d;
+}
+
+form div.incorrect input {
+    background-color: #dc2f3d;
 }
