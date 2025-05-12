@@ -31,15 +31,28 @@ def resource():
 #Sign Up Page with Logic
 @potato.route("/signup", methods=['POST', 'GET'])
 def signup():
-  print("Sign up page")
+  #print("Sign up page")
   if request.method == "POST":
-    print("Form Submit")
+    #print("Form Submit")
     fName = request.form.get("firstname")
     lName = request.form.get("lastname")
     email = request.form.get("email")
     password1= request.form.get("password")
     password2= request.form.get("confirm_password")
     print(fName + ", " +lName + ", " + email + ", " +password1 + ", " + password2)
+
+    mycursor = mydb.cursor()
+    mycursor.execute("select count(*) from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'" )
+    SQLLoginCheck = int(mycursor.fetchall())
+    if SQLLoginCheck >0:
+
+      print(SQLLoginCheck)
+    '''if SQLoginCheck.rows() > 0:
+
+    print(SQLFirstName)'''
+
+    
+
 
   return render_template("signup.html")
 
