@@ -32,29 +32,46 @@ def resource():
 @potato.route("/signup", methods=['POST', 'GET'])
 def signup():
   #print("Sign up page")
+  error= None
   if request.method == "POST":
     #print("Form Submit")
     fName = request.form.get("firstname")
     lName = request.form.get("lastname")
     email = request.form.get("email")
-    password1= request.form.get("password")
-    password2= request.form.get("confirm_password")
-    print(fName + ", " +lName + ", " + email + ", " +password1 + ", " + password2)
+    pass1= request.form.get("password")
+    pass2= request.form.get("confirm_password")
+    #print(fName + ", " +lName + ", " + email + ", " +pass1 + ", " + pass2)
 
-    mycursor = mydb.cursor()
-    mycursor.execute("select count(*) from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'" )
-    SQLLoginCheck = int(mycursor.fetchall())
-    if SQLLoginCheck >0:
-
+    iCheck = mydb.cursor()
+    iCheck.execute("select count(*) from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'" )
+    SQLLoginCheck = iCheck.fetchall()
+    checkint = (int(str(SQLLoginCheck[0]).replace(',', '').replace('(','').replace(')','')))
+    if checkint >0:
       print(SQLLoginCheck)
-    '''if SQLoginCheck.rows() > 0:
+      error = "User already exists. Please try again"
 
-    print(SQLFirstName)'''
+    else:
+      #push to data base
+      sProc = mydb.cursor()
+      sProc.execute("select count(*) from spacepotatoesdb.loginkey")
+      SQLLoginCheck2= sProc.fetchall()
+      checkrows2= int(str(SQLLoginCheck2).replace(',', '').replace('(','').replace(')','').replace('[','').replace(']',''))
+      ID= checkrows2 +1 
+      args= [ID, fName, lName, email, pass1]
+      sProc.callproc('loginkey', (ID, fName, lName, email, pass1))
+      mydb.commit()
+      sProc.close()
+      #print("MAYBE IT SAVED??????")
+      
+    '''
+    if SQLoginCheck.rows() > 0:
 
+    print(SQLFirstName)
+'''
     
 
 
-  return render_template("signup.html")
+  return render_template("signup.html", error = error)
 
 @potato.route("/signin")
 def signin():
