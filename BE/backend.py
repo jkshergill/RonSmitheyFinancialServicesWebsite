@@ -1,4 +1,5 @@
 import mysql.connector
+from flask import Flask, render_template, request
 
 ##Connect to Database
 mydb = mysql.connector.connect(
@@ -18,3 +19,15 @@ myresult = mycursor.fetchall()
 for x in myresult:
   print(x)
 ##print(mydb)
+
+
+"""@
+convert()= html.getvalue() 
+FName= convert(FirstName)
+if sqldraw.[Firstname] = FName
+
+
+FirstName
+LastName
+Password
+Email """
