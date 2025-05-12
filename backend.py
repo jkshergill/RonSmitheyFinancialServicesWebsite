@@ -31,16 +31,13 @@ def resource():
 #Sign Up Page with Logic
 @potato.route("/signup", methods=['POST', 'GET'])
 def signup():
-  #print("Sign up page")
   error= None
   if request.method == "POST":
-    #print("Form Submit")
     fName = request.form.get("firstname")
     lName = request.form.get("lastname")
     email = request.form.get("email")
     pass1= request.form.get("password")
     pass2= request.form.get("confirm_password")
-    #print(fName + ", " +lName + ", " + email + ", " +pass1 + ", " + pass2)
 
     iCheck = mydb.cursor()
     iCheck.execute("select count(*) from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'" )
@@ -48,10 +45,11 @@ def signup():
     checkint = (int(str(SQLLoginCheck[0]).replace(',', '').replace('(','').replace(')','')))
     if checkint >0:
       print(SQLLoginCheck)
-      error = "User already exists. Please try again"
-
+      error = "User already exists. Please try another email."
+    elif pass1 != pass2: 
+      error = "Passwords do not match."
     else:
-      #push to data base
+      #push to database
       sProc = mydb.cursor()
       sProc.execute("select count(*) from spacepotatoesdb.loginkey")
       SQLLoginCheck2= sProc.fetchall()
@@ -61,21 +59,38 @@ def signup():
       sProc.callproc('loginkey', (ID, fName, lName, email, pass1))
       mydb.commit()
       sProc.close()
-      #print("MAYBE IT SAVED??????")
-      
-    '''
-    if SQLoginCheck.rows() > 0:
-
-    print(SQLFirstName)
-'''
-    
-
-
+      #move page to new page (to be assigned)
   return render_template("signup.html", error = error)
 
-@potato.route("/signin")
+#Sign In Page with Logic
+@potato.route("/signin", methods=['POST', 'GET'] )
 def signin():
-  return render_template("signin.html")
+  error= None
+  if request.method == "POST":
+    fName = request.form.get("FirstName")
+    lName = request.form.get("LastName")
+    email = request.form.get("Email")
+    password= request.form.get("Password")
+
+    iCheck = mydb.cursor()
+    iCheck.execute("select count(*) from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'" )
+    SQLLoginCheck = iCheck.fetchall()
+    checkint = (int(str(SQLLoginCheck[0]).replace(',', '').replace('(','').replace(')','')))
+    if checkint ==0:
+        print(SQLLoginCheck)
+        error = "User does not exist."
+    else: 
+        iCheck.execute("select Pass from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'" )
+        passCheck= iCheck.fetchall()
+        passwordcheck= str(passCheck[0]).replace(',', '').replace('(','').replace(')','').replace("'","")
+        if password != passwordcheck: 
+          print(passwordcheck)
+          error = "Password is incorrect."
+        else: 
+          print("Correct password")
+          error = "Password is correct."
+          #move page to new page (to be assigned) 
+  return render_template("signin.html", error = error)
 
 
 ##Check if login details are already in the database
@@ -89,19 +104,7 @@ def later():
 
   for x in myresult:
     print(x)
-  ##print(mydb)
-
-
-  """@
-  convert()= html.getvalue() 
-  FName= convert(FirstName)
-  if sqldraw.[Firstname] = FName
-
-
-  FirstName
-  LastName
-  Password
-  Email """
+  print(mydb)
 
 if __name__ in "__main__":
   potato.run(debug=True)
