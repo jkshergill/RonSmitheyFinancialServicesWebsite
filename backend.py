@@ -28,8 +28,19 @@ def service():
 def resource():
   return render_template("resources.html")
 
-@potato.route("/signup")
+#Sign Up Page with Logic
+@potato.route("/signup", methods=['POST', 'GET'])
 def signup():
+  print("Sign up page")
+  if request.method == "POST":
+    print("Form Submit")
+    fName = request.form.get("firstname")
+    lName = request.form.get("lastname")
+    email = request.form.get("email")
+    password1= request.form.get("password")
+    password2= request.form.get("confirm_password")
+    print(fName + ", " +lName + ", " + email + ", " +password1 + ", " + password2)
+
   return render_template("signup.html")
 
 @potato.route("/signin")
