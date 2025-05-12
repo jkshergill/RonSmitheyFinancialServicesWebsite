@@ -348,9 +348,9 @@
     }
 }
 
-/* Services Section CSS */
+/* Community Engagement Homepage Section CSS */
 
-.services {
+.CommEng {
     background: #141414;
     display: flex;
     flex-direction: column;
@@ -358,7 +358,7 @@
     height: 100vh;
 }
 
-.services h1 {
+.CommEng h1 {
     background-color: #0CABA8;
     background-image: linear-gradient(to right, #25d4d1 0%, #309797 0%, #207878 21%, #1a7575 52%, #1c6767 78%, #0f5757 100%);
     background-size: 100%;
@@ -370,44 +370,40 @@
     -moz-text-fill-color: transparent;
 }
 
-.services__container {
+.CommEng__container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.services__card {
+.CommEng__card {
     margin: 1rem;
     height: 525px;
     width: 400px;
     border-radius: 4px;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('/images/sweet-home.svg');
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('../static/images/schedule.svg');
     background-size: cover;
     position: relative;
     color: #fff;
 }
 
-.services__card:nth-child(2) {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('/images/fast-loading.svg');
+.CommEng__card:nth-child(2) {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('../static/images/social-networking.svg');
 }
 
-.services__card:nth-child(3) {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), url('/images/savings.svg');
-}
-
-.services h2 {
+.CommEng h2 {
     position: absolute;
     top: 380px;
     left: 30px;
 }
 
-.services__card p {
+.CommEng__card p {
     position: absolute;
     top: 420px;
     left: 30px;
 }
 
-.services__card button {
+.CommEng__card button {
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -421,46 +417,34 @@
     cursor: pointer;
 }
 
-.services__card:hover {
+.CommEng__card:hover {
     transform: scale(1.075);
     transition: 0.2s ease-in;
     cursor: pointer;
 }
 
 @media screen and (max-width: 960px) {
-    .services {
-        height: 2100px;
+    .CommEng {
+        height: 1600px;
     }
 
-    .services h1 {
+    .CommEng h1 {
         font-size: 2rem;
         margin-top: 12rem;
-    }
-
-    .services__card {
-        margin-top: 100px;
-        height: 400px;
-        margin-bottom: 100px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .services {
-        height: 1910px;
+    .CommEng {
+        height: 1400px;
     }
 
-    .services h1 {
+    .CommEng h1 {
         font-size: 1.2rem;
     }
 
-    .services {
+    .CommEng {
         width: 300px;
-    }
-
-    .services__card {
-        margin-top: 50px;
-        height: 200px;
-        margin-bottom: 50px;
     }
 }
 

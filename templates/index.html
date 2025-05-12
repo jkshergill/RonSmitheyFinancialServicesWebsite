@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ron Smithey Financial Services</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,16 +22,16 @@
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="/index.html" class="navbar__links">Home</a>
+                    <a href="home" class="navbar__links">Home</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="/resources.html" class="navbar__links">Resources</a>
+                    <a href="resources" class="navbar__links">Resources</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="/services.html" class="navbar__links">Services</a>
+                    <a href="services" class="navbar__links">Services</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="/signup.html" class="button">Sign Up</a>
+                    <a href="signup" class="button">Sign Up</a>
                 </li>
             </ul>
         </div>
@@ -44,10 +44,10 @@
                 <h1>RON SMITHEY</h1>
                 <h2>FINANCIAL SERVICES</h2>
                 <p>Trusted financial guidance, strategic planning, and client success.</p>
-                <button class="main__btn"><a href="/signup.html">Get Started</a></button>
+                <button class="main__btn"><a href="signup">Get Started</a></button>
             </div>
             <div class="main__img--container">
-                <img src="images/projections.svg" alt="homepage image" id="main__img">
+                <img src="{{url_for('static', filename='/images/projections.svg')}}" alt="homepage image" id="main__img">
             </div>
         </div>
     </div>
@@ -128,6 +128,6 @@
         </div>
      </div>
 
-    <script src="app.js"></script>
+    <!--<script src="app.js"></script>-->
 </body>
 </html>

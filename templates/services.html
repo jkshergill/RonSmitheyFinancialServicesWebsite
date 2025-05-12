@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ron Smithey Financial Services</title>
-    <link rel="stylesheet" href="resources.css" />
+    <link rel="stylesheet" href="../static/services.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,53 +22,53 @@
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="/" class="navbar__links">Home</a>
+                    <a href="home" class="navbar__links">Home</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="/resources.html" class="navbar__links">Resources</a>
+                    <a href="resources" class="navbar__links">Resources</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="/" class="navbar__links">Services</a>
+                    <a href="services" class="navbar__links">Services</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="/signup.html" class="button">Sign Up</a>
+                    <a href="signup" class="button">Sign Up</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- Main Section -->
     <div class="main">
         <div class="main__container">
             <div class="main__content">
-                <h1>RESOURCES</h1>
-                <h2>CONTROL YOUR FINANCES</h2>
-                <p>Use your client portal to access exclusive insights unique to your portfolio</p>
+                <h1>SERVICES</h1>
+                <h2>FINANCIAL SUPPORT FOR SUCCESS</h2>
+                <p>Get your questions answered today and live tomorrow with confidence.</p>
                 <button class="main__btn"><a href="/signup.html">Get Started</a></button>
             </div>
             <div class="main__img--container">
-                <img src="images/online-articles.svg" alt="homepage image" id="main__img">
+                <img src="{{url_for('static', filename='/images/finance.svg')}}" alt="homepage image" id="main__img">
             </div>
         </div>
     </div>
 
-    <!-- Calculator Tabs -->
-    <div class="calculator">
-        <h1>Need help? Use our calculators.</h1>
-        <div class="calculator__container">
-            <div class="calculator__card">
-                <h2>Mortgage Calculator</h2>
-                <p>Your first step to becoming a home owner.</p>
+    <!-- Services Tabs -->
+    <div class="services">
+        <h1>Your key to financial success</h1>
+        <div class="services__container">
+            <div class="services__card">
+                <h2>Book an Appointment</h2>
+                <p>Meet with an expert.</p>
                 <button>Explore</button>
             </div>
-            <div class="calculator__card">
-                <h2>Loan Calculator</h2>
-                <p>Stay informed on life's biggest decisions.</p>
+            <div class="services__card">
+                <h2>Tax and Insurance Planning</h2>
+                <p>Protect your assets.</p>
                 <button>Explore</button>
             </div>
-            <div class="calculator__card">
-                <h2>Savings Calculator</h2>
-                <p>Stay ready for big changes, big time.</p>
+            <div class="services__card">
+                <h2>Educational Resources</h2>
+                <p>Empower yourself with financial literacy.</p>
                 <button>Explore</button>
             </div>
         </div>
@@ -133,6 +133,6 @@
         </div>
      </div>
 
-    <script src="app.js"></script>
+    <!--<script src="app.js"></script>-->
 </body>
 </html>
