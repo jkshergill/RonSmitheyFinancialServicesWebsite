@@ -1,18 +1,19 @@
-/* General Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Kumbh Sans', sans-serif;
-  background-color: #f5f5f5;
+  background-color: #141414;
   color: #333;
 }
 
-/* Hero Section */
 .main__container {
-  background-color: #ffffff;
-  padding: 40px 20px;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background-image: linear-gradient(to top, #023535 0%, #10c7c4 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent; /* Gradient text */
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .main__container h1 {
@@ -22,17 +23,23 @@ body {
 
 .main__container p {
   font-size: 1.1rem;
-  color: #555;
+  color: #0CABA8;
 }
 
-/* Calculator Container */
 .calculator__container {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
-  background: #ffffff;
+  background: #023535;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: #0CABA8;
+}
+
+.calculator__container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
 /* Form Styling */
@@ -56,7 +63,7 @@ body {
 .calculator__form button {
   padding: 12px;
   font-size: 1rem;
-  background-color: #4caf50;
+  background-color: #0CABA8;
   color: white;
   border: none;
   border-radius: 5px;
@@ -65,20 +72,19 @@ body {
 }
 
 .calculator__form button:hover {
-  background-color: #45a049;
+  background-color: #10c7c4;
 }
 
-/* Results Section */
 .calculator__results {
   margin-top: 30px;
   padding: 15px;
-  background-color: #e8f5e9;
+  background-color: #fff;
   border-radius: 8px;
 }
 
 .calculator__results h3 {
   margin-top: 0;
-  color: #2e7d32;
+  color: #0CABA8;
 }
 
 .calculator__results p {
