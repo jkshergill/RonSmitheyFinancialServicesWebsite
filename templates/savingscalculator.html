@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Savings Calculator</title>
+  <link rel="stylesheet" href="../static/savingsCalculator.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="main__container">
+    <h1>Savings Calculator</h1>
+    <p>Estimate how much your savings will grow over time with monthly contributions and interest.</p>
+  </div>
+
+  <!-- Calculator Section -->
+  <div class="calculator__container">
+    <h2>Enter Your Savings Details</h2>
+    <form id="savings-form" class="calculator__form">
+      <label for="initial">Initial Amount ($):</label>
+      <input type="number" id="initial" required>
+
+      <label for="monthly">Monthly Contribution ($):</label>
+      <input type="number" id="monthly" required>
+
+      <label for="rate">Annual Interest Rate (%):</label>
+      <input type="number" id="rate" step="0.01" required>
+
+      <label for="years">Years to Save:</label>
+      <input type="number" id="years" required>
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <div class="calculator__results" id="results">
+      <h3>Results:</h3>
+      <p id="future-value">Future Value: $0.00</p>
+      <p id="total-contributions">Total Contributions: $0.00</p>
+      <p id="interest-earned">Interest Earned: $0.00</p>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    document.getElementById('savings-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const initial = parseFloat(document.getElementById('initial').value);
+      const monthly = parseFloat(document.getElementById('monthly').value);
+      const annualRate = parseFloat(document.getElementById('rate').value);
+      const years = parseInt(document.getElementById('years').value);
+
+      const months = years * 12;
+      const monthlyRate = annualRate / 100 / 12;
+
+      let futureValue = initial * Math.pow(1 + monthlyRate, months);
+      for (let i = 1; i <= months; i++) {
+        futureValue += monthly * Math.pow(1 + monthlyRate, months - i);
+      }
+
+      const totalContributions = initial + (monthly * months);
+      const interestEarned = futureValue - totalContributions;
+
+      if (isFinite(futureValue)) {
+        document.getElementById('future-value').textContent = `Future Value: $${futureValue.toFixed(2)}`;
+        document.getElementById('total-contributions').textContent = `Total Contributions: $${totalContributions.toFixed(2)}`;
+        document.getElementById('interest-earned').textContent = `Interest Earned: $${interestEarned.toFixed(2)}`;
+      } else {
+        alert('Please enter valid numbers in all fields.');
+      }
+    });
+  </script>
+</body>
+</html>

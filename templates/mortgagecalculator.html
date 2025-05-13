@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mortgage Calculator</title>
+  <link rel="stylesheet" href=".../static/mortgagecalculator.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="main__container">
+    <h1>Mortgage Calculator</h1>
+    <p>Use this calculator to estimate your monthly mortgage payment based on loan amount, interest rate, and loan term.</p>
+  </div>
+
+  <!-- Calculator Section -->
+  <div class="calculator__container">
+    <h2>Enter Your Mortgage Details</h2>
+    <form id="mortgage-form" class="calculator__form">
+      <label for="amount">Loan Amount ($):</label>
+      <input type="number" id="amount" required>
+
+      <label for="interest">Annual Interest Rate (%):</label>
+      <input type="number" id="interest" step="0.01" required>
+
+      <label for="years">Loan Term (Years):</label>
+      <input type="number" id="years" required>
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <div class="calculator__results" id="results">
+      <h3>Results:</h3>
+      <p id="monthly">Monthly Payment: $0.00</p>
+      <p id="total">Total Payment: $0.00</p>
+      <p id="interest-paid">Total Interest: $0.00</p>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    document.getElementById('mortgage-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const principal = parseFloat(document.getElementById('amount').value);
+      const annualInterest = parseFloat(document.getElementById('interest').value);
+      const years = parseInt(document.getElementById('years').value);
+
+      const monthlyInterest = annualInterest / 100 / 12;
+      const payments = years * 12;
+
+      const x = Math.pow(1 + monthlyInterest, payments);
+      const monthlyPayment = (principal * x * monthlyInterest) / (x - 1);
+
+      if (isFinite(monthlyPayment)) {
+        const totalPayment = monthlyPayment * payments;
+        const totalInterest = totalPayment - principal;
+
+        document.getElementById('monthly').textContent = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+        document.getElementById('total').textContent = `Total Payment: $${totalPayment.toFixed(2)}`;
+        document.getElementById('interest-paid').textContent = `Total Interest: $${totalInterest.toFixed(2)}`;
+      } else {
+        alert('Please enter valid numbers in all fields.');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -20,19 +20,32 @@ def start():
 def home():
   return render_template("index.html")
 
-
+#Services Page
 @potato.route("/services")
 def service():
   return render_template("services.html")
 
-#Services: Educational Resources 
 @potato.route("/EDResources")
 def EDResources():
   return render_template("EDResources.html")
 
+
+#Resources Page
 @potato.route("/resources")
 def resource():
   return render_template("resources.html")
+
+@potato.route("/mortgagecalculator")
+def mortgagecalculator():
+  return render_template("mortgagecalculator.html")
+
+@potato.route("/loancalculator")
+def loancalculator():
+  return render_template("loancalculator.html")
+
+@potato.route("/savingscalculator")
+def savingscalculator():
+  return render_template("savingscalculator.html")
 
 #Footer: Submit an Inquiry 
 @potato.route("/inquiryform")
