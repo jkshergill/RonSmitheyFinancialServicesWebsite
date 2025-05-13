@@ -32,6 +32,10 @@ def home():
 def service():
   return render_template("services.html")
 
+@potato.route("/bookappt")
+def bookappt():
+  return render_template("bookappt.html")
+
 @potato.route("/EDResources")
 def EDResources():
   return render_template("EDResources.html")
