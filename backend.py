@@ -27,6 +27,10 @@ def start():
 def home():
   return render_template("index.html")
 
+@potato.route("/privacy")
+def privacy():
+  return render_template("termsandprivacy.html")
+
 @potato.route("/eventscalender")
 def events():
   return render_template("eventscalender.html")
