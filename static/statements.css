@@ -1,38 +1,65 @@
+/* Header Styling */
 .portal-main h2 {
-    color: #023535; /* Matches the portal text color */
+    color: #00f8c2; /* Accent color for headings */
     margin-bottom: 1rem;
-  }
+    font-size: 1.8rem;
+    text-align: left;
+}
 
-  .portal-main ul {
+/* List Styling */
+.portal-main ul {
     list-style: none;
     padding: 0;
     margin-top: 1rem;
-  }
+}
 
-  .portal-main ul li {
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    background-color: #f7f9fc; /* Matches the portal background */
-    border-radius: 6px; /* Adds rounded corners */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-    color: #023535; /* Matches the portal text color */
-  }
+.portal-main ul li {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: linear-gradient(145deg, #1a1a1a, #111); /* Subtle gradient background */
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.05); /* Matches the portal's shadow style */
+    color: #fff; /* Light text for contrast */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .portal-main ul li a {
-    color: #023535;
+.portal-main ul li:hover {
+    transform: scale(1.02); /* Slight scaling on hover */
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2); /* Glow effect on hover */
+}
+
+.portal-main ul li a {
+    color: #00f8c2; /* Accent color for links */
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease, text-decoration 0.3s ease;
-  }
+}
 
-  .portal-main ul li a:hover {
+.portal-main ul li a:hover {
     text-decoration: underline;
-    color: #0CABA8; /* Matches the hover color in client-portal.css */
-  }
+    color: #ff5ca6; /* Matches the hover color in client-portal.css */
+}
 
-  .portal-footer {
+/* Footer Styling */
+.portal-footer {
     text-align: center;
     padding: 1rem;
-    background-color: #023535; /* Matches the portal footer color */
-    color: #fff;
-  }
+    background-color: #161616; /* Dark footer background */
+    color: #fff; /* Light text for contrast */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+    .portal-main ul li {
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+
+    .portal-main ul li a {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+
+    .portal-footer {
+        font-size: 0.9rem; /* Adjust footer text size for smaller screens */
+    }
+}

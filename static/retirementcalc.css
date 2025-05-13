@@ -1,33 +1,76 @@
+/* Form Styling */
 .calculator-form {
     max-width: 600px;
     margin-top: 2rem;
-  }
+    background: linear-gradient(145deg, #1a1a1a, #111); /* Subtle gradient background */
+    padding: 1.5rem;
+    border-radius: 8px; /* Matches the portal's rounded corners */
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.05); /* Matches the portal's shadow style */
+    color: #fff; /* Light text for contrast */
+}
 
-  .calculator-form label {
+/* Label Styling */
+.calculator-form label {
     display: block;
     margin-top: 1rem;
-  }
+    font-weight: bold;
+    color: #00f8c2; /* Accent color for labels */
+}
 
-  .calculator-form input {
+/* Input Field Styling */
+.calculator-form input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-top: 0.25rem;
-  }
+    font-size: 1rem;
+    border: 1px solid #222; /* Darker border for consistency with the dark theme */
+    border-radius: 4px; /* Matches the rounded corners of the form */
+    background-color: #1a1a1a; /* Dark background for inputs */
+    color: #fff; /* Light text for contrast */
+}
 
-  .calculator-form button {
+.calculator-form input:focus {
+    outline: none;
+    border-color: #00f8c2; /* Matches the hover color in client-portal.css */
+    box-shadow: 0 0 5px rgba(0, 255, 204, 0.5); /* Adds a glow effect */
+}
+
+/* Button Styling */
+.calculator-form button {
     margin-top: 1.5rem;
     padding: 0.75rem;
     font-size: 1rem;
-  }
+    background-color: #00f8c2; /* Matches the portal's accent color */
+    color: #0a0a0a; /* Dark text for contrast */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-  .calculator-result {
+.calculator-form button:hover {
+    background-color: #ff5ca6; /* Matches the hover color in client-portal.css */
+    transform: translateY(-2px); /* Adds a subtle lift effect */
+}
+
+/* Result Box Styling */
+.calculator-result {
     margin-top: 2rem;
     font-weight: bold;
-  }
-
-  .summary-box {
-    margin-top: 1rem;
-    background-color: #eef2f3;
+    color: #fff; /* Light text for contrast */
+    background: linear-gradient(145deg, #1a1a1a, #111); /* Subtle gradient background */
     padding: 1rem;
-    border-radius: 6px;
-  }
+    border-radius: 6px; /* Matches the portal's rounded corners */
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.05); /* Matches the portal's shadow style */
+    text-align: center;
+}
+
+/* Summary Box Styling */
+.summary-box {
+    margin-top: 1rem;
+    background: linear-gradient(145deg, #1a1a1a, #111); /* Subtle gradient background */
+    padding: 1rem;
+    border-radius: 6px; /* Matches the portal's rounded corners */
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.05); /* Matches the portal's shadow style */
+    color: #fff; /* Light text for contrast */
+}

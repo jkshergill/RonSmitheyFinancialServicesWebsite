@@ -1,37 +1,44 @@
+/* General Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Kumbh Sans', sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #0a0a0a; /* Dark background */
+  color: #fff; /* Light text for contrast */
 }
 
+/* Hero Section */
 .main__container {
-  background-color: hsl(0, 0%, 100%);
+  background: linear-gradient(to right, #00dff8, #ff688b); /* Gradient background */
   padding: 40px 20px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  border-radius: 8px; /* Rounded corners */
 }
 
 .main__container h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: #0a0a0a; /* Dark text for contrast */
 }
 
 .main__container p {
   font-size: 1.1rem;
-  color: #555;
+  color: #0a0a0a; /* Dark text for contrast */
 }
 
+/* Calculator Container */
 .calculator__container {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
-  background: #ffffff;
+  background: linear-gradient(145deg, #1a1a1a, #111); /* Subtle gradient background */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.05); /* Matches the portal's shadow style */
+  color: #fff; /* Light text for contrast */
 }
 
+/* Form Styling */
 .calculator__form {
   display: flex;
   flex-direction: column;
@@ -39,44 +46,75 @@ body {
 }
 
 .calculator__form label {
-  font-weight: 600;
+  font-weight: bold;
+  color: #00f8c2; /* Accent color for labels */
 }
 
 .calculator__form input {
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #222; /* Darker border for consistency with the dark theme */
   border-radius: 5px;
+  background-color: #1a1a1a; /* Dark background for inputs */
+  color: #fff; /* Light text for contrast */
+}
+
+.calculator__form input:focus {
+  outline: none;
+  border-color: #00f8c2; /* Matches the hover color in client-portal.css */
+  box-shadow: 0 0 5px rgba(0, 255, 204, 0.5); /* Adds a glow effect */
 }
 
 .calculator__form button {
   padding: 12px;
   font-size: 1rem;
-  background-color: #007bff;
-  color: white;
+  background-color: #00f8c2; /* Matches the portal's accent color */
+  color: #0a0a0a; /* Dark text for contrast */
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .calculator__form button:hover {
-  background-color: #0056b3;
+  background-color: #ff5ca6; /* Matches the hover color in client-portal.css */
+  transform: translateY(-2px); /* Adds a subtle lift effect */
 }
 
+/* Results Section */
 .calculator__results {
   margin-top: 30px;
   padding: 15px;
-  background-color: #e3f2fd;
+  background: linear-gradient(145deg, #1a1a1a, #111); /* Subtle gradient background */
   border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.05); /* Matches the portal's shadow style */
+  color: #fff; /* Light text for contrast */
 }
 
 .calculator__results h3 {
   margin-top: 0;
-  color: #0d47a1;
+  color: #00f8c2; /* Accent color for headings */
 }
 
 .calculator__results p {
   font-size: 1.1rem;
   margin: 8px 0;
+  color: #ddd; /* Softer text color */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .calculator__container {
+    padding: 15px;
+  }
+
+  .calculator__form input,
+  .calculator__form button {
+    font-size: 0.9rem; /* Adjust font size for smaller screens */
+  }
+
+  .calculator__results {
+    font-size: 0.9rem; /* Adjust result text size for smaller screens */
+  }
 }

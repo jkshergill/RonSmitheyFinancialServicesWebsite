@@ -1,79 +1,109 @@
-.download-list {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #f7f9fc; /* Matches the portal background */
-    border-radius: 8px; /* Adds rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-  }
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0a0a0a; /* Dark background */
+    color: #fff; /* Light text for contrast */
+}
 
-  .download-list a {
-    display: block;
-    margin: 0.75rem 0;
-    color: #023535; /* Matches the portal text color */
-    font-weight: bold; /* Makes links stand out */
-    text-decoration: none; /* Removes underline */
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-  }
-
-  .download-list a:hover {
-    text-decoration: underline; /* Adds underline on hover */
-    color: #0CABA8; /* Matches the hover color in client-portal.css */
-  }
-
-  .portal-header {
-    background-color: #023535; /* Matches the portal header color */
-    color: #fff;
+/* Header Styling */
+.portal-header {
+    background: linear-gradient(to right, #00dff8, #ff688b); /* Gradient background */
+    color: #0a0a0a; /* Dark text for contrast */
     text-align: center;
     padding: 2rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
-  }
+}
 
-  .portal-container {
-    display: flex;
-    min-height: 80vh;
-  }
-
-  .portal-sidebar {
+/* Sidebar Styling */
+.portal-sidebar {
     width: 220px;
-    background-color: #023535; /* Matches the portal sidebar color */
+    background-color: #161616; /* Dark sidebar background */
     padding: 1rem;
     color: #fff;
-  }
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
 
-  .portal-sidebar ul {
+.portal-sidebar ul {
     list-style: none;
     padding: 0;
-  }
+}
 
-  .portal-sidebar li {
+.portal-sidebar li {
     margin: 1rem 0;
-  }
+}
 
-  .portal-sidebar a {
+.portal-sidebar a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease, text-decoration 0.3s ease;
-  }
+}
 
-  .portal-sidebar a:hover {
+.portal-sidebar a:hover {
     text-decoration: underline;
-    color: #0CABA8; /* Matches the hover color in client-portal.css */
-  }
+    color: #00f8c2; /* Matches the hover color in client-portal.css */
+}
 
-  .portal-sidebar a.active {
+.portal-sidebar a.active {
     font-weight: bold;
     text-decoration: underline;
-    color: #0CABA8; /* Matches the active link color */
-  }
+    color: #00f8c2; /* Matches the active link color */
+}
 
-  .portal-main {
+/* Main Content Styling */
+.portal-main {
     flex: 1;
     padding: 2rem;
-    background-color: #ffffff; /* Matches the portal main background */
-    color: #023535; /* Matches the portal text color */
-  }
+    background-color: #1a1a1a; /* Dark background for main content */
+    color: #fff; /* Light text for contrast */
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.05); /* Subtle shadow */
+}
 
-  .portal-main h2 {
-    color: #023535; /* Matches the portal text color */
+.portal-main h2 {
+    color: #00f8c2; /* Accent color for headings */
     margin-bottom: 1rem;
-  }
+}
+
+/* Download List Styling */
+.download-list {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(145deg, #1a1a1a, #111); /* Subtle gradient background */
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.05); /* Matches the portal's shadow style */
+}
+
+.download-list a {
+    display: block;
+    margin: 0.75rem 0;
+    color: #00f8c2; /* Accent color for links */
+    font-weight: bold; /* Makes links stand out */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.download-list a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+    color: #ff5ca6; /* Matches the hover color in client-portal.css */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+    .portal-sidebar {
+        width: 100%; /* Sidebar takes full width on smaller screens */
+        padding: 1rem;
+    }
+
+    .portal-main {
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .download-list {
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .download-list a {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+}

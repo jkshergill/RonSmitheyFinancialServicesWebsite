@@ -6,6 +6,14 @@
   font-family: 'Kumbh Sans', sans-serif;
 }
 
+/* General Styling */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0a0a0a; /* Dark background */
+  color: #fff; /* Light text for contrast */
+}
+
 nav {
   height: 80px;
   display: flex;
@@ -17,18 +25,13 @@ nav {
   margin-top: 4rem;
 }
 
-body {
-  margin: 0;
-  background-color: #f7f9fc;
-}
-
-
+/* Header Styling */
 .portal-header {
-  background-color: #023535;
-  color: #fff;
+  background: linear-gradient(to right, #00dff8, #ff688b); /* Gradient background */
+  color: #0a0a0a; /* Dark text for contrast */
   text-align: center;
   padding: 2rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .portal-container {
@@ -36,11 +39,13 @@ body {
   min-height: 80vh;
 }
 
+/* Sidebar Styling */
 .portal-sidebar {
-  width: 220px;
-  background-color: #023535;
+  background-color: #161616; /* Dark sidebar background */
   padding: 1rem;
-  color: #fff;
+  width: 220px;
+  min-height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .portal-sidebar ul {
@@ -60,22 +65,24 @@ body {
 
 .portal-sidebar a:hover {
   text-decoration: underline;
-  color: #0CABA8;
+  color: #00f8c2; /* Accent color */
 }
 
 .portal-main {
   flex: 1;
   padding: 2rem;
-  background-color: #ffffff;
-  color: #023535;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.05);
 }
 
 .dashboard-overview {
   margin-bottom: 2rem;
 }
 
-.dashboard-overview h2{
-  color: #023535;
+.dashboard-overview h2 {
+  color: #fff;
 }
 
 .dashboard-cards {
@@ -84,23 +91,28 @@ body {
   flex-wrap: wrap;
 }
 
+/* Cards */
 .card {
-  background-color: #023535;
+  background: linear-gradient(145deg, #1a1a1a, #111);
   color: #fff;
   padding: 1.5rem;
   border-radius: 8px;
-  flex: 1;
-  min-width: 200px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-top: 10px;
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
 }
 
 .card h3 {
   margin-top: 0;
+  color: #ff5ca6; /* Accent color */
 }
 
 .tools-section h2 {
-  color: #023535;
+  color: #fff;
   margin-bottom: 1rem;
 }
 
@@ -114,7 +126,7 @@ body {
 }
 
 .tool-links a {
-  color: #023535;
+  color: #fff;
   font-weight: bold;
   text-decoration: none;
 }
