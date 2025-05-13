@@ -16,6 +16,7 @@ global GetID
 GetID= None 
 
 potato = Flask(__name__)
+potato.secret_key = 'potato'
 
 @potato.route("/")
 def start():
