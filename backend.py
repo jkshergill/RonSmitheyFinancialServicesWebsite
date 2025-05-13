@@ -15,16 +15,17 @@ potato = Flask(__name__)
 def start():
   return redirect("/home")
 
-
+#Home Page
 @potato.route("/home")
 def home():
   return render_template("index.html")
+
 
 @potato.route("/services")
 def service():
   return render_template("services.html")
 
-#Educational Resources 
+#Services: Educational Resources 
 @potato.route("/EDResources")
 def EDResources():
   return render_template("EDResources.html")
@@ -32,6 +33,15 @@ def EDResources():
 @potato.route("/resources")
 def resource():
   return render_template("resources.html")
+
+#Footer: Submit an Inquiry 
+@potato.route("/inquiryform")
+def inquiryform():
+  return render_template("inquiryform.html")
+
+@potato.route("/inquiryform2")
+def inquiryform2():
+  return render_template("inquiryform2.html")
 
 #Sign Up Page with Logic
 @potato.route("/signup", methods=['POST', 'GET'])
