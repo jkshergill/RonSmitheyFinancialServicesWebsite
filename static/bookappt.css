@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #141414;
+}
+
+.booking-form-box {
+    background: #023535;
+    padding: 2.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    margin: 1.25rem;
+    width: 35rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.booking-form-box h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+form label {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+form input {
+    width: 100%;
+    padding: 0.625rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #141414;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus {
+    background-color: #f0f0f0;
+    box-shadow: 0 0 5px #10c7c4;
+    outline: none;
+}
+
+li {
+    list-style: none;
+    padding: 3px;
+}
+
+button {
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+    padding: 0.875rem 2rem;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: all 0.35s;
+    outline: none;
+    width: 100%;
+}
+
+button:hover {
+    background: #10c7c4;
+    transition: all 0.35s;
+}
+
+button:focus {
+    outline: 2px solid #10c7c4;
+    outline-offset: 2px;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+

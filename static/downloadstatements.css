@@ -1,0 +1,79 @@
+.download-list {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f7f9fc; /* Matches the portal background */
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  }
+
+  .download-list a {
+    display: block;
+    margin: 0.75rem 0;
+    color: #023535; /* Matches the portal text color */
+    font-weight: bold; /* Makes links stand out */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+
+  .download-list a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+    color: #0CABA8; /* Matches the hover color in client-portal.css */
+  }
+
+  .portal-header {
+    background-color: #023535; /* Matches the portal header color */
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  }
+
+  .portal-container {
+    display: flex;
+    min-height: 80vh;
+  }
+
+  .portal-sidebar {
+    width: 220px;
+    background-color: #023535; /* Matches the portal sidebar color */
+    padding: 1rem;
+    color: #fff;
+  }
+
+  .portal-sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .portal-sidebar li {
+    margin: 1rem 0;
+  }
+
+  .portal-sidebar a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+
+  .portal-sidebar a:hover {
+    text-decoration: underline;
+    color: #0CABA8; /* Matches the hover color in client-portal.css */
+  }
+
+  .portal-sidebar a.active {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #0CABA8; /* Matches the active link color */
+  }
+
+  .portal-main {
+    flex: 1;
+    padding: 2rem;
+    background-color: #ffffff; /* Matches the portal main background */
+    color: #023535; /* Matches the portal text color */
+  }
+
+  .portal-main h2 {
+    color: #023535; /* Matches the portal text color */
+    margin-bottom: 1rem;
+  }

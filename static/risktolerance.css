@@ -1,0 +1,54 @@
+.portal-main h2 {
+    color: #023535; /* Matches the portal text color */
+    margin-bottom: 1rem;
+  }
+
+  .portal-main form {
+    margin-top: 2rem;
+    max-width: 600px;
+    background-color: #f7f9fc; /* Matches the portal background */
+    padding: 1.5rem;
+    border-radius: 8px; /* Matches the portal's rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  }
+
+  .question {
+    margin-bottom: 1.5rem;
+  }
+
+  .question p {
+    font-weight: bold;
+    color: #023535; /* Matches the portal text color */
+  }
+
+  .question label {
+    display: block;
+    margin-top: 0.25rem;
+    color: #023535; /* Matches the portal text color */
+  }
+
+  .portal-main button {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #023535; /* Matches the portal header/sidebar */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .portal-main button:hover {
+    background-color: #0CABA8; /* Matches the hover color in client-portal.css */
+  }
+
+  .result {
+    margin-top: 2rem;
+    font-weight: bold;
+    color: #023535; /* Matches the portal text color */
+    background-color: #f7f9fc; /* Matches the portal background */
+    padding: 1rem;
+    border-radius: 6px; /* Matches the portal's rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  }
