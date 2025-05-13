@@ -1,0 +1,110 @@
+/* filepath: /Users/jagjeetkaur/FinalWebsite/RonSmitheyFinancialServicesWebsite/static/eventscalender.css */
+/* Events Calendar Styles */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif; /* Updated font for consistency */
+    background-color: #0a0a0a; /* Dark background */
+    color: #fff; /* Light text for contrast */
+}
+
+.portal-header {
+    background: linear-gradient(to right, #00dff8, #ff688b); /* Gradient background */
+    color: #0a0a0a; /* Dark text for contrast */
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.portal-header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.portal-container {
+    display: flex;
+    min-height: 80vh;
+    padding: 2rem;
+    background-color: #161616; /* Darker background for the main container */
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.portal-main {
+    flex: 1;
+    padding: 2rem;
+    background: linear-gradient(145deg, #1a1a1a, #111); /* Subtle gradient background */
+    color: #ccc; /* Softer text color */
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.05);
+}
+
+h2 {
+    color: #00f8c2; /* Accent color */
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    background: linear-gradient(to right, #00f8c2, #ff5ca6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.calendar-container {
+    margin-top: 2rem;
+}
+
+.event-card {
+    background: linear-gradient(145deg, #1a1a1a, #111); /* Subtle gradient background */
+    border-left: 5px solid #00f8c2; /* Accent border */
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.event-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+}
+
+.event-card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #ff5ca6; /* Accent color */
+    margin-bottom: 0.5rem;
+}
+
+.event-card p {
+    margin: 0.25rem 0;
+    color: #ddd; /* Softer text color */
+    line-height: 1.5;
+}
+
+.event-card strong {
+    color: #00f8c2; /* Accent color */
+}
+
+.portal-footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #092629; /* Dark footer background */
+    color: #ccc; /* Softer text color */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.portal-footer p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.article-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
