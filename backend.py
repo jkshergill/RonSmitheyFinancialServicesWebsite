@@ -55,42 +55,33 @@ def savingscalculator():
   return render_template("savingscalculator.html")
 
 #Footer
-@potato.route("/inquiryform", methods= ['POST', 'GET'])
+@potato.route("/inquiryform", methods=['POST', 'GET'])
 def inquiryform():
-    GetID = session.get("GetID")
     error = None
     show_view2 = False
-    if (signedin == False):
-        return redirect("/signin")
-    elif signedin and (GetID != None):
-      if request.method == "POST":
-          feedback = request.form.get("feedback")
-          inquiry = request.form.get("inquiry")
-          transaction = request.form.get("transaction")
-          general = request.form.get("general")
-          other = request.form.get("other")
+    if request.method == "POST":
+        feedback = request.form.get("feedback")
+        inquiry = request.form.get("inquiry")
+        transaction = request.form.get("transaction")
+        general = request.form.get("general")
+        other = request.form.get("other")
 
-          possible = ["feedback", "inquiry", "transaction", "general", "other"]
-          args = [feedback, inquiry, transaction, general, other]
-          savelist = [possible[i] for i in range(len(args)) if args[i] is not None]
+        possible = ["feedback", "inquiry", "transaction", "general", "other"]
+        args = [feedback, inquiry, transaction, general, other]
+        savelist = [possible[i] for i in range(len(args)) if args[i] is not None]
 
-          if not savelist:
-              error = "Please select at least one option."
-          else:
-              message= request.form.get("message")
-              show_view2 = True  
-              savethis = str(savelist)
-              
-              sProc = mydb.cursor()
-              sProc.callproc('inquiryform', GetID, savelist, message)
-              mydb.commit()
-              sProc.close()
-              print(savethis)
+        if not savelist:
+            error = "Please select at least one option."
+        else:
+            savelist_str = ", ".join(savelist)  
+            message = request.form.get("message", "")
 
-      return render_template("inquiryform.html", error=error, show_view2=show_view2)
-    else: 
-      print("Something is wrong")
-  
+            sProc = mydb.cursor()
+            sProc.callproc('inquiryform', [savelist_str, message])  
+            mydb.commit()
+            sProc.close()
+            print(savelist_str)
+    return render_template("inquiryform.html", error=error, show_view2=show_view2)
 
 
 #Sign Up Page with Logic

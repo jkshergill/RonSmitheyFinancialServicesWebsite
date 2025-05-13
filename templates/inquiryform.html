@@ -52,7 +52,7 @@
     <div id="view2" {% if not show_view2 %}class="hidden"{% endif %}>
         <div class="form-container">
             <h2>Inquiry Form</h2>
-            <form action="your-backend-script.php" method="POST">
+            <form method="POST" action="/inquiryform">
                 <label class="messageLabel" for="message">Message:</label>
                 <textarea class="textarea" id="message" name="message" rows="4" required></textarea>
                 <button class="submitButton" type="submit">Submit</button>
