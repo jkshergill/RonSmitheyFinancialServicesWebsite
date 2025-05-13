@@ -114,7 +114,7 @@ def inquiryform():
 def signup():
   error= None
   if request.method == "POST":
-    print("got")
+    #print("got")
     fName = request.form.get("firstname")
     lName = request.form.get("lastname")
     email = request.form.get("email")
