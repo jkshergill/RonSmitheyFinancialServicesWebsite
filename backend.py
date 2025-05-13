@@ -125,7 +125,7 @@ def signup():
     SQLLoginCheck = iCheck.fetchall()
     checkint = (int(str(SQLLoginCheck[0]).replace(',', '').replace('(','').replace(')','')))
     if checkint >0:
-      print(SQLLoginCheck)
+      #print(SQLLoginCheck)
       error = "User already exists. Please try another email."
     elif pass1 != pass2: 
       error = "Passwords do not match."
