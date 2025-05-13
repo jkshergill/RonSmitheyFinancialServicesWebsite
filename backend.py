@@ -47,7 +47,7 @@ def loancalculator():
 def savingscalculator():
   return render_template("savingscalculator.html")
 
-#Footer: Submit an Inquiry 
+#Footer
 @potato.route("/inquiryform")
 def inquiryform():
   return render_template("inquiryform.html")
@@ -119,6 +119,54 @@ def signin():
           error = "Password is correct."
           #move page to new page (to be assigned) 
   return render_template("signin.html", error = error)
+
+@potato.route("/budgetbuilder")
+def budget():
+  return render_template("budgetbuilder.html")
+
+@potato.route("/clientportal")
+def clientportal():
+  return render_template("clientportal.html")
+
+@potato.route("/dashboard")
+def dashboard():
+  return render_template("dashboard.html")
+
+@potato.route("/downloadstatements")
+def ds():
+  return render_template("downloadstatements.html")
+
+@potato.route("/investmentcalc")
+def investcalc():
+  return render_template("investmentcalc.html")
+
+@potato.route("/logout")
+def logout():
+  return render_template("logout.html")
+
+@potato.route("/messages")
+def messages():
+  return render_template("messages.html")
+
+@potato.route("/portfolio")
+def portfolio():
+  return render_template("portfolio.html")
+
+@potato.route("/retirementcalc")
+def retirecalc():
+  return render_template("retirementcalc.html")
+
+@potato.route("/risktolerance")
+def risktol():
+  return render_template("risktolerance.html")
+
+@potato.route("/statements")
+def statements():
+  return render_template("statements.html")
+
+@potato.route("/tools")
+def tools():
+  return render_template("tools.html")
 
 
 ##Check if login details are already in the database

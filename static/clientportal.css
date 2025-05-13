@@ -1,0 +1,108 @@
+/* Client Portal Styles */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f7f9fc;
+  }
+  
+  .portal-header {
+    background-color: #003366;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .portal-container {
+    display: flex;
+    min-height: 80vh;
+  }
+  
+  .portal-sidebar {
+    width: 220px;
+    background-color: #002244;
+    padding: 1rem;
+    color: #fff;
+  }
+  
+  .portal-sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .portal-sidebar li {
+    margin: 1rem 0;
+  }
+  
+  .portal-sidebar a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .portal-sidebar a:hover {
+    text-decoration: underline;
+  }
+  
+  .portal-main {
+    flex: 1;
+    padding: 2rem;
+    background-color: #ffffff;
+  }
+  
+  .dashboard-overview {
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-cards {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background-color: #e6f2ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 200px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .card h3 {
+    margin-top: 0;
+  }
+  
+  .tools-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .tool-links li {
+    margin-bottom: 1rem;
+  }
+  
+  .tool-links a {
+    color: #003366;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .tool-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .portal-footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #003366;
+    color: #fff;
+  }
+
+  .portal-sidebar a.active {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #ffcc00;
+  }
+  

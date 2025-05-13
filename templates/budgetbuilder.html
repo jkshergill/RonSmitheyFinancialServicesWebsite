@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Budget Builder</title>
+  <link rel="stylesheet" href="../static/styles.css" />
+  <link rel="stylesheet" href="../static/clientportal.css" />
+  <style>
+    .budget-form {
+      margin-top: 2rem;
+      max-width: 600px;
+    }
+
+    .budget-form label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .budget-form input {
+      padding: 0.5rem;
+      width: 100%;
+      margin-top: 0.25rem;
+    }
+
+    .budget-form button {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .budget-result {
+      margin-top: 2rem;
+      font-weight: bold;
+    }
+
+    .budget-summary {
+      margin-top: 1rem;
+      background-color: #f1f1f1;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+  </style>
+  <script>
+    function calculateBudget() {
+      const income = parseFloat(document.getElementById("income").value) || 0;
+      const rent = parseFloat(document.getElementById("rent").value) || 0;
+      const food = parseFloat(document.getElementById("food").value) || 0;
+      const transportation = parseFloat(document.getElementById("transportation").value) || 0;
+      const entertainment = parseFloat(document.getElementById("entertainment").value) || 0;
+      const other = parseFloat(document.getElementById("other").value) || 0;
+
+      const totalExpenses = rent + food + transportation + entertainment + other;
+      const balance = income - totalExpenses;
+
+      document.getElementById("total-expenses").textContent = `Total Monthly Expenses: $${totalExpenses.toFixed(2)}`;
+      document.getElementById("monthly-balance").textContent = `Remaining Balance: $${balance.toFixed(2)}`;
+
+      const advice = document.getElementById("advice");
+      if (balance < 0) {
+        advice.textContent = "⚠️ You're spending more than you're earning. Consider reducing expenses.";
+        advice.style.color = "red";
+      } else if (balance < income * 0.2) {
+        advice.textContent = "🟡 You're close to breaking even. Try increasing savings.";
+        advice.style.color = "#cc9900";
+      } else {
+        advice.textContent = "✅ Great job! You have a healthy surplus.";
+        advice.style.color = "green";
+      }
+    }
+  </script>
+</head>
+<body>
+  <header class="portal-header">
+    <h1>Budget Builder</h1>
+    <p>Track and optimize your monthly spending</p>
+  </header>
+  <div class="portal-container">
+    <aside class="portal-sidebar">
+      <nav>
+        <ul>
+          <li><a href="dashboard">Dashboard</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="statements">Statements</a></li>
+          <li><a href="tools" class="active">Financial Tools</a></li>
+          <li><a href="messages">Messages</a></li>
+          <li><a href="logout">Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="portal-main">
+      <h2>Build Your Monthly Budget</h2>
+      <form class="budget-form" onsubmit="event.preventDefault(); calculateBudget();">
+        <label>Monthly Income ($)
+          <input type="number" id="income" required />
+        </label>
+        <label>Rent/Mortgage ($)
+          <input type="number" id="rent" />
+        </label>
+        <label>Food & Groceries ($)
+          <input type="number" id="food" />
+        </label>
+        <label>Transportation ($)
+          <input type="number" id="transportation" />
+        </label>
+        <label>Entertainment ($)
+          <input type="number" id="entertainment" />
+        </label>
+        <label>Other Expenses ($)
+          <input type="number" id="other" />
+        </label>
+        <button type="submit">Calculate Budget</button>
+      </form>
+
+      <div class="budget-result">
+        <div class="budget-summary">
+          <p id="total-expenses">Total Monthly Expenses: $0.00</p>
+          <p id="monthly-balance">Remaining Balance: $0.00</p>
+          <p id="advice"></p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

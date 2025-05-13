@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Retirement Calculator</title>
+  <link rel="stylesheet" href="../static/styles.css" />
+  <link rel="stylesheet" href="../static/clientportal.css" />
+  <style>
+    .calculator-form {
+      max-width: 600px;
+      margin-top: 2rem;
+    }
+
+    .calculator-form label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .calculator-form input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+    }
+
+    .calculator-form button {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .calculator-result {
+      margin-top: 2rem;
+      font-weight: bold;
+    }
+
+    .summary-box {
+      margin-top: 1rem;
+      background-color: #eef2f3;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+  </style>
+  <script>
+    function calculateRetirement() {
+      const currentAge = parseInt(document.getElementById("currentAge").value) || 0;
+      const retirementAge = parseInt(document.getElementById("retirementAge").value) || 0;
+      const currentSavings = parseFloat(document.getElementById("currentSavings").value) || 0;
+      const annualContribution = parseFloat(document.getElementById("annualContribution").value) || 0;
+      const expectedReturn = parseFloat(document.getElementById("expectedReturn").value) / 100 || 0;
+
+      const yearsToGrow = retirementAge - currentAge;
+      let futureValue = currentSavings;
+
+      for (let i = 0; i < yearsToGrow; i++) {
+        futureValue = futureValue * (1 + expectedReturn) + annualContribution;
+      }
+
+      document.getElementById("retirementValue").textContent = `Estimated Retirement Savings: $${futureValue.toFixed(2)}`;
+    }
+  </script>
+</head>
+<body>
+  <header class="portal-header">
+    <h1>Retirement Calculator</h1>
+    <p>Project your savings and plan for the future</p>
+  </header>
+  <div class="portal-container">
+    <aside class="portal-sidebar">
+      <nav>
+        <ul>
+          <li><a href="dashboard">Dashboard</a></li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="statements">Statements</a></li>
+          <li><a href="tools" class="active">Financial Tools</a></li>
+          <li><a href="messages">Messages</a></li>
+          <li><a href="logout">Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="portal-main">
+      <h2>Estimate Your Retirement Savings</h2>
+      <form class="calculator-form" onsubmit="event.preventDefault(); calculateRetirement();">
+        <label>Current Age
+          <input type="number" id="currentAge" min="0" required />
+        </label>
+        <label>Desired Retirement Age
+          <input type="number" id="retirementAge" min="0" required />
+        </label>
+        <label>Current Savings ($)
+          <input type="number" id="currentSavings" step="0.01" />
+        </label>
+        <label>Annual Contribution ($)
+          <input type="number" id="annualContribution" step="0.01" />
+        </label>
+        <label>Expected Annual Return (%) 
+          <input type="number" id="expectedReturn" step="0.1" />
+        </label>
+        <button type="submit">Calculate</button>
+      </form>
+
+      <div class="calculator-result">
+        <div class="summary-box">
+          <p id="retirementValue">Estimated Retirement Savings: $0.00</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
