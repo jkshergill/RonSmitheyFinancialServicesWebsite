@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="navbar.css"/>
+        <link rel="stylesheet" href="inquiryform.css"/>
+        <title> Inquiry Form </title>
+    </head>
+    <body>
+        <form>
+            <h1>What is your inquiry about?</h1>
+            <p>Topic:</p>
+            <div>
+                <label>Provide Feedback
+                    <input type="checkbox" name="feedback">
+                </label>
+            </div>
+
+            <div>
+                <label>Product Inquiry
+                    <input type="checkbox" name="inquiry">
+                </label>
+            </div>
+
+            <div>
+                <label>Transaction Question
+                    <input type="checkbox" name="transaction">
+                </label>
+            </div>
+
+            <div>
+                <label>General Question
+                    <input type="checkbox" name="general">
+                </label>
+            </div>
+
+            <div>
+                <label>Other
+                    <input type="checkbox" name="other">
+                </label>
+            </div>
+            <div class="btn-field">
+                <button type="button" id="continueBtn">Continue</button>
+            </div>
+        </form>
+
+        <script>
+            document.getElementById('continueBtn').addEventListener('click', function() {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                let atLeastOneChecked = false;
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        atLeastOneChecked = true;
+                    }
+                });
+                
+                if (!atLeastOneChecked) {
+                    alert('Please select at least one option before continuing.');
+                } else {
+                    window.location.href = 'inquiryform2.html';
+                }
+            });
+        </script>
+    </body>
+</html>
