@@ -1,0 +1,30 @@
+.logout-message {
+    text-align: center;
+    margin-top: 100px;
+    padding: 2rem;
+  }
+
+  .logout-message h2 {
+    color: #023535;
+    font-size: 2rem;
+  }
+
+  .logout-message p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+  }
+
+  .logout-message a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #023535;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  .logout-message a:hover {
+    background-color: #0CABA8;
+  }

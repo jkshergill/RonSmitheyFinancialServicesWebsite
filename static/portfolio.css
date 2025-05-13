@@ -1,0 +1,19 @@
+.portal-main h2 {
+    color: #023535; /* Matches the portal text color */
+    margin-bottom: 1rem;
+  }
+
+.portal-main ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.portal-main ul li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f7f9fc; /* Matches the portal background */
+  border-radius: 6px; /* Adds rounded corners */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  color: #023535; /* Matches the portal text color */
+}

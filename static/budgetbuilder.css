@@ -1,0 +1,72 @@
+.budget-form {
+    margin-top: 2rem;
+    max-width: 600px;
+    background-color: #ffffff; /* Matches the portal-main background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    color: #023535; /* Matches the portal text color */
+  }
+
+  .budget-form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold; /* Makes labels stand out */
+    color: #023535; /* Matches the portal text color */
+  }
+
+  .budget-form input {
+    padding: 0.5rem;
+    width: 100%;
+    margin-top: 0.25rem;
+    border: 1px solid #ccc; /* Adds a border for better visibility */
+    border-radius: 4px; /* Matches the rounded corners of the form */
+    font-size: 1rem;
+    color: #023535; /* Matches the portal text color */
+  }
+
+  .budget-form input:focus {
+    outline: none;
+    border-color: #0CABA8; /* Matches the hover color in client-portal.css */
+    box-shadow: 0 0 5px rgba(12, 171, 168, 0.5); /* Adds a glow effect */
+  }
+
+  .budget-form button {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #023535; /* Matches the portal header/sidebar */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .budget-form button:hover {
+    background-color: #0CABA8; /* Matches the hover color in client-portal.css */
+  }
+
+  .budget-result {
+    margin-top: 2rem;
+    font-weight: bold;
+    color: #023535; /* Matches the portal text color */
+  }
+
+  .budget-summary {
+    margin-top: 1rem;
+    background-color: #f7f9fc; /* Matches the portal background */
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    color: #023535; /* Matches the portal text color */
+  }
+
+  .budget-summary p {
+    margin: 0.5rem 0;
+  }
+
+  #advice {
+    font-weight: bold;
+    margin-top: 1rem;
+  }
