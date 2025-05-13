@@ -59,29 +59,42 @@ def savingscalculator():
 def inquiryform():
     error = None
     show_view2 = False
+
     if request.method == "POST":
-        feedback = request.form.get("feedback")
-        inquiry = request.form.get("inquiry")
-        transaction = request.form.get("transaction")
-        general = request.form.get("general")
-        other = request.form.get("other")
+        # Case 1: message is present → this is the final submission
+        if 'message' in request.form:
+            message = request.form.get("message")
+            types = request.form.get("types")  
 
-        possible = ["feedback", "inquiry", "transaction", "general", "other"]
-        args = [feedback, inquiry, transaction, general, other]
-        savelist = [possible[i] for i in range(len(args)) if args[i] is not None]
-
-        if not savelist:
-            error = "Please select at least one option."
+            try:
+                sProc = mydb.cursor()
+                sProc.callproc('inquiryform', [types, message])
+                mydb.commit()
+                sProc.close()
+                return redirect("/home")  
+            except Exception as e:
+                error = f"Database error: {str(e)}"
         else:
-            savelist_str = ", ".join(savelist)  
-            message = request.form.get("message", "")
+            # Case 2: this is the first form (checkboxes)
+            feedback = request.form.get("feedback")
+            inquiry = request.form.get("inquiry")
+            transaction = request.form.get("transaction")
+            general = request.form.get("general")
+            other = request.form.get("other")
 
-            sProc = mydb.cursor()
-            sProc.callproc('inquiryform', [savelist_str, message])  
-            mydb.commit()
-            sProc.close()
-            print(savelist_str)
-    return render_template("inquiryform.html", error=error, show_view2=show_view2)
+            possible = ["feedback", "inquiry", "transaction", "general", "other"]
+            args = [feedback, inquiry, transaction, general, other]
+            savelist = [possible[i] for i in range(len(args)) if args[i] is not None]
+
+            if not savelist:
+                error = "Please select at least one option."
+            else:
+                show_view2 = True
+                types = ", ".join(savelist)
+                return render_template("inquiryform.html", show_view2=True, error=None, types=types)
+
+    return render_template("inquiryform.html", show_view2=False, error=error)
+
 
 
 #Sign Up Page with Logic
