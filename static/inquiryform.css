@@ -1,6 +1,11 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+  }
+
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background: url('blurrybackground.webp') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +14,8 @@ body {
 }
 
 form{
-    background-color: #f0f4ef;
+    background-color: #186967;
+    color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
