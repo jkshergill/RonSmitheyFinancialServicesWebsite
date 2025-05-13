@@ -9,6 +9,12 @@ mydb = mysql.connector.connect(
   database="spacepotatoesdb"
 )
 
+global signedin
+signedin = False
+
+global GetID
+GetID= None 
+
 potato = Flask(__name__)
 
 @potato.route("/")
@@ -48,13 +54,43 @@ def savingscalculator():
   return render_template("savingscalculator.html")
 
 #Footer
-@potato.route("/inquiryform")
+@potato.route("/inquiryform", methods= ['POST', 'GET'])
 def inquiryform():
-  return render_template("inquiryform.html")
+    
+    error = None
+    show_view2 = False
+    if (signedin == False):
+        return redirect("/signin")
+    elif signedin and (GetID != None):
+      if request.method == "POST":
+          feedback = request.form.get("feedback")
+          inquiry = request.form.get("inquiry")
+          transaction = request.form.get("transaction")
+          general = request.form.get("general")
+          other = request.form.get("other")
 
-@potato.route("/inquiryform2")
-def inquiryform2():
-  return render_template("inquiryform2.html")
+          possible = ["feedback", "inquiry", "transaction", "general", "other"]
+          args = [feedback, inquiry, transaction, general, other]
+          savelist = [possible[i] for i in range(len(args)) if args[i] is not None]
+
+          if not savelist:
+              error = "Please select at least one option."
+          else:
+              message= request.form.get("message")
+              show_view2 = True  
+              savethis = str(savelist)
+              
+              sProc = mydb.cursor()
+              sProc.callproc('inquiryform', GetID, savelist, message)
+              mydb.commit()
+              sProc.close()
+              print(savethis)
+
+      return render_template("inquiryform.html", error=error, show_view2=show_view2)
+    else: 
+      print("Something is wrong")
+  
+
 
 #Sign Up Page with Logic
 @potato.route("/signup", methods=['POST', 'GET'])
@@ -117,7 +153,12 @@ def signin():
         else: 
           print("Correct password")
           error = "Password is correct."
-          #move page to new page (to be assigned) 
+          signedin = True
+          iCheck.execute("select ID from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'")
+          IDcheck = iCheck.fetchall()
+          checkID= str(IDcheck[0]).replace(',', '').replace('(','').replace(')','').replace("'","").replace('[','').replace(']','')
+          return render_template("index.html", GetID= checkID, signedin= True)
+
   return render_template("signin.html", error = error)
 
 @potato.route("/budgetbuilder")

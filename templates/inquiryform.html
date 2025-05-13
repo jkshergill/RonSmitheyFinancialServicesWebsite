@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="../static/inquiryform.css"/>
-        <title> Inquiry Form </title>
-    </head>
-    <body>
-        <form>
+<head>
+    <title>Inquiry Form</title>
+    <link rel="stylesheet" href="../static/inquiryform.css" />
+    <link rel="stylesheet" href="../static/inquiryform2.css" />
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- View 1: Checkboxes -->
+    <div id="view1" {% if show_view2 %}class="hidden"{% endif %}>
+        <form id="form1" method="POST">
             <h1>What is your inquiry about?</h1>
             <p>Topic:</p>
             <div>
@@ -13,52 +22,71 @@
                     <input type="checkbox" name="feedback">
                 </label>
             </div>
-
             <div>
                 <label>Product Inquiry
                     <input type="checkbox" name="inquiry">
                 </label>
             </div>
-
             <div>
                 <label>Transaction Question
                     <input type="checkbox" name="transaction">
                 </label>
             </div>
-
             <div>
                 <label>General Question
                     <input type="checkbox" name="general">
                 </label>
             </div>
-
             <div>
                 <label>Other
                     <input type="checkbox" name="other">
                 </label>
             </div>
             <div class="btn-field">
-                <button type="button" id="continueBtn">Continue</button>
+                <button type="submit" id="continueBtn">Continue</button>
             </div>
         </form>
+    </div>
 
-        <script>
-            document.getElementById('continueBtn').addEventListener('click', function() {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                let atLeastOneChecked = false;
-                
-                checkboxes.forEach(checkbox => {
-                    if (checkbox.checked) {
-                        atLeastOneChecked = true;
-                    }
-                });
-                
-                if (!atLeastOneChecked) {
-                    alert('Please select at least one option before continuing.');
-                } else {
-                    window.location.href = 'inquiryform2';
-                }
-            });
-        </script>
-    </body>
+    <!-- View 2: Message Form -->
+    <div id="view2" {% if not show_view2 %}class="hidden"{% endif %}>
+        <div class="form-container">
+            <h2>Inquiry Form</h2>
+            <form action="your-backend-script.php" method="POST">
+                <label class="messageLabel" for="message">Message:</label>
+                <textarea class="textarea" id="message" name="message" rows="4" required></textarea>
+                <button class="submitButton" type="submit">Submit</button>
+                <button type="button" id="backBtn">Back</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const continueBtn = document.getElementById('continueBtn');
+        const backBtn = document.getElementById('backBtn');
+        const view1 = document.getElementById('view1');
+        const view2 = document.getElementById('view2');
+
+        continueBtn.addEventListener('click', () => {
+            const checkboxes = document.querySelectorAll('#form1 input[type="checkbox"]');
+            let isChecked = Array.from(checkboxes).some(cb => cb.checked);
+
+            if (!isChecked) {
+                alert('Please select at least one option before continuing.');
+                return;
+            }
+
+            // Switch views
+            view1.classList.add('hidden');
+            view2.classList.remove('hidden');
+        });
+
+        backBtn.addEventListener('click', () => {
+            // Go back to first view
+            view2.classList.add('hidden');
+            view1.classList.remove('hidden');
+        });
+    </script>
+
+</body>
 </html>
