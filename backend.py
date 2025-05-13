@@ -114,6 +114,7 @@ def inquiryform():
 def signup():
   error= None
   if request.method == "POST":
+    print("got")
     fName = request.form.get("firstname")
     lName = request.form.get("lastname")
     email = request.form.get("email")
@@ -140,6 +141,7 @@ def signup():
       sProc.callproc('loginkey', (ID, fName, lName, email, pass1))
       mydb.commit()
       sProc.close()
+      return redirect("/home")
       #move page to new page (to be assigned)
   return render_template("signup.html", error = error)
 
