@@ -1,5 +1,5 @@
 import mysql.connector
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for, session
 
 ##Connect to Database
 mydb = mysql.connector.connect(
@@ -56,7 +56,7 @@ def savingscalculator():
 #Footer
 @potato.route("/inquiryform", methods= ['POST', 'GET'])
 def inquiryform():
-    
+    GetID = session.get("GetID")
     error = None
     show_view2 = False
     if (signedin == False):
@@ -157,6 +157,9 @@ def signin():
           iCheck.execute("select ID from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'")
           IDcheck = iCheck.fetchall()
           checkID= str(IDcheck[0]).replace(',', '').replace('(','').replace(')','').replace("'","").replace('[','').replace(']','')
+
+          session["signedin"] = True
+          session["GetID"] = IDcheck
           return render_template("index.html", GetID= checkID, signedin= True)
 
   return render_template("signin.html", error = error)
