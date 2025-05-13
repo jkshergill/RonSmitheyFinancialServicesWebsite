@@ -27,6 +27,14 @@ def start():
 def home():
   return render_template("index.html")
 
+@potato.route("/eventscalender")
+def events():
+  return render_template("eventscalender.html")
+
+@potato.route("/forums")
+def forums():
+  return render_template("forums.html")
+
 #Services Page
 @potato.route("/services")
 def service():
