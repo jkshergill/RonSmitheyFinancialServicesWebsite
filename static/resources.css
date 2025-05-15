@@ -484,6 +484,16 @@
     font-size: 2rem;
 }
 
+.footer__container {
+    color: white;
+}
+
+.footer__contact-text {
+    color: inherit; 
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
 .footer__links {
     width: 100%;
     max-width: 1000px;
