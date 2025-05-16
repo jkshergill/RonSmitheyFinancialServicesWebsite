@@ -9,8 +9,6 @@ mydb = mysql.connector.connect(
   database="spacepotatoesdb"
 )
 
-global signedin
-signedin = False
 
 global GetID
 GetID= None 
@@ -20,6 +18,8 @@ potato.secret_key = 'potato'
 
 @potato.route("/")
 def start():
+  session.clear()
+  session["signedin"] = False
   return redirect("/home")
 
 #Home Page
@@ -33,19 +33,28 @@ def privacy():
 
 @potato.route("/eventscalender")
 def events():
+  print("SESSION signedin =", session.get("signedin"))
+  if not session.get("signedin"):
+        return redirect("/signup")
   return render_template("eventscalender.html")
 
 @potato.route("/forums")
 def forums():
-  return render_template("forums.html")
+    print("SESSION signedin =", session.get("signedin"))
+    if not session.get("signedin"):
+        return redirect("/signup")
+    return render_template("forums.html")
 
 #Services Page
 @potato.route("/services")
 def service():
   return render_template("services.html")
 
-@potato.route("/bookappt")
+@potato.route("/bookappt", methods=['POST', 'GET'])
 def bookappt():
+  print("SESSION signedin =", session.get("signedin"))
+  if not session.get("signedin"):
+        return redirect("/signup")
   return render_template("bookappt.html")
 
 @potato.route("/EDResources")
@@ -145,6 +154,14 @@ def signup():
       sProc.callproc('loginkey', (ID, fName, lName, email, pass1))
       mydb.commit()
       sProc.close()
+
+      iCheck.execute("select ID from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'")
+      IDcheck = iCheck.fetchall()
+      checkID= str(IDcheck[0]).replace(',', '').replace('(','').replace(')','').replace("'","").replace('[','').replace(']','')
+      
+      session.permanent = True
+      session["signedin"] = True
+      session["GetID"] = IDcheck
       return redirect("/home")
       #move page to new page (to be assigned)
   return render_template("signup.html", error = error)
@@ -180,10 +197,11 @@ def signin():
           iCheck.execute("select ID from spacepotatoesdb.loginkey where FirstName= " + "'" +fName+ "'" +" and LastName= " + "'" + lName + "'" + " and Email=  " + "'" +email+ "'")
           IDcheck = iCheck.fetchall()
           checkID= str(IDcheck[0]).replace(',', '').replace('(','').replace(')','').replace("'","").replace('[','').replace(']','')
-
+          
+          session.permanent = True
           session["signedin"] = True
           session["GetID"] = IDcheck
-          return render_template("index.html", GetID= checkID, signedin= True)
+          return redirect("/home")
 
   return render_template("signin.html", error = error)
 
@@ -193,6 +211,9 @@ def budget():
 
 @potato.route("/clientportal")
 def clientportal():
+  print("SESSION signedin =", session.get("signedin"))
+  if not session.get("signedin"):
+        return redirect("/signup")
   return render_template("clientportal.html")
 
 @potato.route("/dashboard")
@@ -249,5 +270,5 @@ def later():
     print(x)
   print(mydb)
 
-if __name__ in "__main__":
+if __name__ == "__main__":
   potato.run(debug=True)
