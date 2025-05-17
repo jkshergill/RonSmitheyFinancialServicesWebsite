@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0a0a0a;
+    color: rgb(255, 255, 255);
+ }
+ 
+ 
+ section {
+    margin-bottom: 1.5em;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+ }
+ 
+ 
+ h1, h2 {
+    background: linear-gradient(to right, #00f8c2, #ff5ca6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+ }
+ 
+ 
+ h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+ }
+ 
+ 
+ h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+ }
+ 
+ 
+ p {
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.6;
+    text-align: left;
+    max-width: none;
+ }
+ 
+ 
+ 
+ 
+ 
