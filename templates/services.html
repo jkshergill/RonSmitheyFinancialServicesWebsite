@@ -45,7 +45,9 @@
                 <h1>SERVICES</h1>
                 <h2>FINANCIAL SUPPORT FOR SUCCESS</h2>
                 <p>Get your questions answered today and live tomorrow with confidence.</p>
-                <button class="main__btn"><a href="/signup.html">Get Started</a></button>
+                <form action="/signup">
+                <button class="main__btn" type="submit">Get Started</button>
+                </form>
             </div>
             <div class="main__img--container">
                 <img src="{{url_for('static', filename='/images/finance.svg')}}" alt="homepage image" id="main__img">
@@ -83,9 +85,9 @@
             <div class="footer__link--items">
                 <h2>About Us</h2>
                 <a href="aboutus">About Us Page</a>
-                <a href="/">Meet the Team</a>
+                <!--<a href="/">Meet the Team</a>
                 <a href="/">Testimonials</a>
-                <a href="/">Location</a>
+                <a href="/">Location</a>-->
                 <a href="privacy">Privacy Policy & Terms of Service</a>
             </div>
             </div>
