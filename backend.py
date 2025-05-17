@@ -38,12 +38,20 @@ def events():
         return redirect("/signup")
   return render_template("eventscalender.html")
 
-@potato.route("/forums")
+@potato.route("/forums", methods=['POST', 'GET'] )
 def forums():
     print("SESSION signedin =", session.get("signedin"))
     if not session.get("signedin"):
         return redirect("/signup")
     return render_template("forums.html")
+
+@potato.route('/forumsfollow', methods=['POST'])
+def forumsfollow():
+    title = request.form.get('title')
+    content = request.form.get('content')
+    print(f"New forum post: {title} — {content}")
+
+    return redirect(url_for('home'))
 
 #Services Page
 @potato.route("/services")

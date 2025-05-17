@@ -11,9 +11,11 @@
     <h1>Financial Forums</h1>
     <p>Engage with other clients on finance-related topics</p>
   </header>
+
   <div class="portal-container">
     <main class="portal-main">
       <h2>Community Discussions</h2>
+
       <div class="forum-container">
         <div class="forum-post">
           <h3>💬 What are your favorite budgeting apps?</h3>
@@ -31,9 +33,11 @@
 
       <div class="new-post">
         <h3>Start a New Discussion</h3>
-        <input type="text" placeholder="Post Title" />
-        <textarea rows="4" placeholder="Share your question or thought..."></textarea>
-        <button type="button">Post</button>
+        <form action="/forumsfollow" method="POST">
+          <input type="text" name="title" placeholder="Post Title" required />
+          <textarea name="content" rows="4" placeholder="Share your question or thought..." required></textarea>
+          <button class="form__submit" type="submit">Post</button>
+        </form>
       </div>
     </main>
   </div>
