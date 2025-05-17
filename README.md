@@ -17,3 +17,20 @@ How to download the database:
     password="SpacePotatoes131$",
     database="spacepotatoesdb"
 3) run the files in the SQL Setup folder in your SQL editor
+
+
+Downloads: 
+Flask
+MySql Connector
+MySQL Workbench 
+VS Code
+
+
+Languages: 
+HTML
+Python
+CSS
+Java
+
+
+**ignore if prompt for dl gunicorn; we ended up not using it **
