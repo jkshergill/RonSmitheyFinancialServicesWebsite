@@ -120,7 +120,9 @@ def inquiryform():
 
     return render_template("inquiryform.html", show_view2=False, error=error)
 
-
+@potato.route("/aboutus")
+def aboutus():
+   return render_template("aboutus.html")
 
 #Sign Up Page with Logic
 @potato.route("/signup", methods=['POST', 'GET'])
