@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="booking-form-box" method = "POST">
-        <form id="appointmentForm">
+        <form id="appointmentForm" action="/book" method="POST">
             <h1>BOOK APPOINTMENT</h1>
             
             <div>
@@ -60,13 +60,13 @@
                 <div id="reasonError" class="error-message">Please select a reason.</div>
             </div>
             
-            <button type="submit">Submit</button>
+            <button class="form__submit" type="submit">Submit</button>
         </form>
     </div>
 
     <script>
         document.getElementById('appointmentForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+            //event.preventDefault();
             let isValid = true;
             
             // Validate Name
@@ -119,6 +119,7 @@
             
             // Submit if valid
             if (isValid) {
+                this.submit();
                 alert('Appointment booked successfully!');
             }
         });

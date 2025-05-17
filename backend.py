@@ -55,7 +55,22 @@ def bookappt():
   print("SESSION signedin =", session.get("signedin"))
   if not session.get("signedin"):
         return redirect("/signup")
+  if request.method =="POST":
+     return redirect("/home/")
   return render_template("bookappt.html")
+
+@potato.route("/book", methods=["POST"])
+def book():
+    name = request.form["name"]
+    email = request.form["email"]
+    phone = request.form["phone"]
+    date = request.form["date"]
+    time = request.form["time"]
+    reason = request.form["reason"]
+
+    print("Booking submitted:", name, email, phone, date, time, reason)
+
+    return redirect(url_for("home"))
 
 @potato.route("/EDResources")
 def EDResources():
